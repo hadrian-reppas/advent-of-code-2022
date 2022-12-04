@@ -10,8 +10,8 @@ move = {
 
 score = 0
 for line in inp.split("\n"):
-    them = ord(line[0]) - ord("@")
-    outcome = ord(line[2]) - ord("W")
+    them = ord(line[0]) - ord("A") + 1
+    outcome = ord(line[2]) - ord("X") + 1
     me = move[(them, outcome)]
     if (me, them) in win:
         score += 6 + me
