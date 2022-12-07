@@ -1,4 +1,4 @@
-from part1 import stacks, moves
+from shared import stacks, moves
 
 for line in moves.split("\n"):
     n, start, end = map(int, line.split()[1::2])
