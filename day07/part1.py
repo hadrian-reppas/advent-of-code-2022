@@ -1,9 +1,6 @@
-inp = open("input.txt").read()
-
-sizes = []
-stack = []
-for line in inp.split("\n"):
-    if line == "$ cd ..":
+sizes, stack = [], []
+for line in open("input.txt"):
+    if line.startswith("$ cd .."):
         size = stack.pop()
         sizes.append(size)
         stack[-1] += size
@@ -21,9 +18,5 @@ while len(stack) > 1:
 sizes.append(stack.pop())
 
 if __name__ == "__main__":
-    total = 0
-    for size in sizes:
-        if size <= 100000:
-            total += size
-
+    total = sum(filter(lambda size: size <= 100000, sizes))
     print(total)
